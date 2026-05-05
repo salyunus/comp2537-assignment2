@@ -445,6 +445,7 @@ app.get(
         req.session.destroy(
             function ()
             {
+                res.clearCookie("connect.sid");
                 res.redirect("/");
             }
         );
