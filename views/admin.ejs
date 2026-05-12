@@ -1,0 +1,31 @@
+<%- include("templates/header", { title: title, user: user }) %>
+
+<h1 class="mb-3">Admin</h1>
+
+<p>
+    This page lists all users and their user type.
+</p>
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>User type</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% for (let i = 0; i < users.length; i++) { %>
+            <%- include(
+                "templates/user",
+                {
+                    currentUser: users[i]
+                }
+            ) %>
+        <% } %>
+    </tbody>
+</table>
+
+<%- include("templates/footer") %>

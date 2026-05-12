@@ -1,0 +1,43 @@
+<%- include("templates/header", { title: title, user: user }) %>
+
+<% if (message) { %>
+    <div class="alert alert-danger">
+        <h1 class="h3">
+            403
+        </h1>
+
+        <p>
+            <%= message %>
+        </p>
+    </div>
+<% } %>
+
+<h1 class="mb-3">Home</h1>
+
+<% if (user && user.authenticated) { %>
+    <p class="lead">
+        Hello, <%= user.name %>.
+    </p>
+
+    <a class="btn btn-primary" href="/members">
+        Go to Members Area
+    </a>
+
+    <a class="btn btn-outline-danger" href="/logout">
+        Logout
+    </a>
+<% } else { %>
+    <p class="lead">
+        Hello! Please sign up or log in.
+    </p>
+
+    <a class="btn btn-primary" href="/signup">
+        Sign up
+    </a>
+
+    <a class="btn btn-outline-primary" href="/login">
+        Log in
+    </a>
+<% } %>
+
+<%- include("templates/footer") %>

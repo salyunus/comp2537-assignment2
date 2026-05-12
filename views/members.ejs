@@ -1,0 +1,27 @@
+<%- include("templates/header", { title: title, user: user }) %>
+
+<h1 class="mb-3">Members</h1>
+
+<p class="lead">
+    Hello, <%= user.name %>.
+</p>
+
+<h2 class="h4 mb-3">Images</h2>
+
+<div class="row">
+    <% for (let i = 0; i < images.length; i++) { %>
+        <div class="col-12 col-md-4 mb-3">
+            <img
+                class="img-fluid rounded border"
+                src="<%= images[i] %>"
+                alt="Member image <%= i + 1 %>"
+            >
+        </div>
+    <% } %>
+</div>
+
+<a class="btn btn-outline-danger" href="/logout">
+    Sign out
+</a>
+
+<%- include("templates/footer") %>

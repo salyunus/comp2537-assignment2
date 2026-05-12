@@ -1,0 +1,54 @@
+<%- include("templates/header", { title: title, user: user }) %>
+
+<h1 class="mb-3">Create user</h1>
+
+<% if (message) { %>
+    <div class="alert alert-danger">
+        <%= message %>
+    </div>
+<% } %>
+
+<form method="POST" action="/signup" class="col-md-6">
+    <div class="mb-3">
+        <label class="form-label" for="name">
+            Name
+        </label>
+        <input
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="John Doe"
+        >
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="email">
+            Email
+        </label>
+        <input
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="JohnDoe@domain.com"
+        >
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="password">
+            Password
+        </label>
+        <input
+            class="form-control"
+            id="password"
+            name="password"
+            type="password"
+            placeholder="password"
+        >
+    </div>
+
+    <button class="btn btn-primary" type="submit">
+        Submit
+    </button>
+</form>
+
+<%- include("templates/footer") %>

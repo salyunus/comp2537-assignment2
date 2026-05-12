@@ -1,0 +1,42 @@
+<%- include("templates/header", { title: title, user: user }) %>
+
+<h1 class="mb-3">Log in</h1>
+
+<% if (message) { %>
+    <div class="alert alert-danger">
+        <%= message %>
+    </div>
+<% } %>
+
+<form method="POST" action="/login" class="col-md-6">
+    <div class="mb-3">
+        <label class="form-label" for="email">
+            Email
+        </label>
+        <input
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="email"
+        >
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="password">
+            Password
+        </label>
+        <input
+            class="form-control"
+            id="password"
+            name="password"
+            type="password"
+            placeholder="password"
+        >
+    </div>
+
+    <button class="btn btn-primary" type="submit">
+        Log in
+    </button>
+</form>
+
+<%- include("templates/footer") %>

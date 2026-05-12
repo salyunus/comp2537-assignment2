@@ -1,0 +1,28 @@
+<tr>
+    <td><%= currentUser.name %></td>
+    <td><%= currentUser.email %></td>
+    <td><%= currentUser.user_type || "user" %></td>
+    <td>
+        <% if (currentUser.user_type === "admin") { %>
+            <form
+                method="POST"
+                action="/admin/demote/<%= currentUser._id %>"
+                class="d-inline"
+            >
+                <button class="btn btn-warning btn-sm" type="submit">
+                    Demote to User
+                </button>
+            </form>
+        <% } else { %>
+            <form
+                method="POST"
+                action="/admin/promote/<%= currentUser._id %>"
+                class="d-inline"
+            >
+                <button class="btn btn-warning btn-sm" type="submit">
+                    Promote to Admin
+                </button>
+            </form>
+        <% } %>
+    </td>
+</tr>
